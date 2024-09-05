@@ -6,7 +6,7 @@ CASE_SENSITIVE="true"
 ENABLE_CORRECTION="true"
 
 # hide the username
-DEFAULT_USER prompt_context(){}
+#DEFAULT_USER prompt_context(){}
 
 plugins=(git)
 
@@ -30,4 +30,9 @@ alias gaa='git add .'
 alias gcm='git commit -m'
 alias gpsh='git push'
 alias gss='git status -s'
-alias gs='echo ""; echo "*********************************************"; echo -e "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "**********
+
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
