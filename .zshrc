@@ -12,6 +12,9 @@ ZSH_THEME="agnoster"
 CASE_SENSITIVE="true"
 ENABLE_CORRECTION="true"
 
+# hide the username
+DEFAULT_USER prompt_context(){}
+
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
