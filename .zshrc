@@ -31,6 +31,9 @@ alias gcm='git commit -m'
 alias gpsh='git push'
 alias gss='git status -s'
 
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
